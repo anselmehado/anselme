@@ -1,0 +1,32 @@
+<%= form_with(model: entre) do |form| %>
+  <% if entre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entre.errors.count, "error") %> prohibited this entre from being saved:</h2>
+
+      <ul>
+        <% entre.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montant_in %>
+    <%= form.text_field :montant_in %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motif %>
+    <%= form.text_field :motif %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

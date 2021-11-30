@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Montant:</strong>
+  <%= @entre.montant_in %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @entre.date %>
+</p>
+
+<p>
+  <strong>Motif:</strong>
+  <%= @entre.motif %>
+</p>
+
+
+<%= link_to 'Edit', edit_entre_path(@entre) %> |
+<%= link_to 'Back', entres_path %>
