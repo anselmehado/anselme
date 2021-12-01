@@ -27,7 +27,8 @@ class EntresController < ApplicationController
 
     respond_to do |format|
       if(@entre.montant_in.nil?)
-        redirect_to new_entre_path
+         redirect_to new_entre_path
+
       else
       @entre.montant_in = nombre_positif(@entre.montant_in)
 
