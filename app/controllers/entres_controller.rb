@@ -26,13 +26,13 @@ class EntresController < ApplicationController
     #@entre = Entre.new(entre_params)
 
     respond_to do |format|
-      if(@entre.montant_in.nil?)
-         redirect_to new_entre_path
-
+      if(@entre.montant_in.blank?)
+         # redirect_to new_entre_path
       else
       @entre.montant_in = nombre_positif(@entre.montant_in)
 
       end
+
       if @entre.save
 
         format.html { redirect_to @entre, notice: "Entre was successfully created." }

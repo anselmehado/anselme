@@ -25,7 +25,12 @@ class OperationsController < ApplicationController
     @operation = current_user.operations.build(operation_params)
 
     respond_to do |format|
+      if(@operation.montantsort.blank?)
+      else
+
       @operation.montantsort = nombre_positif(@operation.montantsort)
+     end
+     
       if @operation.save
         format.html { redirect_to @operation, notice: "Operation was successfully created." }
         format.json { render :show, status: :created, location: @operation }
