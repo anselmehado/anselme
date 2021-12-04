@@ -1,13 +1,33 @@
 <h1>Log In</h1>
-<div class="form">
-  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-    <br>
-    <%= f.email_field :email, id: "email", placeholder: "Email..." %>
-    <br>
-    <br>
-    <%= f.password_field :password, id: "password", placeholder: "Password..."%>
-    <br>
-    <br>
-    <%= f.submit "Log In", class: "submit", value: "Login" %>
-  <% end %>
-</div>
+<body>
+
+	<div class="container">
+
+		<div class="form-container">
+
+			<div class="sigin-form active-form">
+				<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+          <%= f.email_field :email, id: "email", placeholder: "Email..." %>
+          <%= f.password_field :password, id: "password", placeholder: "Password..."%>
+          <%= f.submit "Log In", class: "submit", value: "Login" %>
+        <% end %>
+				<center> <%= link_to "Sign up", new_user_path %></center>
+			</div>
+
+			<div class="center">
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+	<span id="cursor"></span>
+	<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+</body>

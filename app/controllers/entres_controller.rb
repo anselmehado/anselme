@@ -3,7 +3,10 @@ class EntresController < ApplicationController
 
   # GET /entres or /entres.json
   def index
-    @entres = Entre.all
+
+    @entres = Entre.user_entre_list(current_user.id)
+    @entres = Entre.user_entre(current_user.id)
+    #@entres = Entre.all
   end
 
   # GET /entres/1 or /entres/1.json
@@ -15,15 +18,12 @@ class EntresController < ApplicationController
     @entre = Entre.new
   end
 
-  # GET /entres/1/edit
   def edit
   end
 
-  # POST /entres or /entres.json
   def create
 
       @entre = current_user.entres.build(entre_params)
-    #@entre = Entre.new(entre_params)
 
     respond_to do |format|
       if(@entre.montant_in.blank?)

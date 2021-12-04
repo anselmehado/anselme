@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
     	 session[:user_id] = @user.id
-      redirect_to sorties_path
+      #redirect_to sorties_path
       redirect_to entres_path
       # redirect_to sorties_path
     else

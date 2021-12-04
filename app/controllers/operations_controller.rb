@@ -4,7 +4,9 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.all
+    @operations = Operation.user_operation_list(current_user.id)
+    @operations = Operation.user_operation(current_user.id)
+    #@operations = Operation.all
   end
 
   # GET /operations/1 or /operations/1.json
@@ -30,7 +32,7 @@ class OperationsController < ApplicationController
 
       @operation.montantsort = nombre_positif(@operation.montantsort)
      end
-     
+
       if @operation.save
         format.html { redirect_to @operation, notice: "Operation was successfully created." }
         format.json { render :show, status: :created, location: @operation }

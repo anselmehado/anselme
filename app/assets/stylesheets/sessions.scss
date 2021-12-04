@@ -1,3 +1,177 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+:root {
+  --white: #e9e9e9;
+  --gray: #333;
+  --blue: #0367a6;
+  --lightblue: #008997;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.25s ease-in-out;
+}
+
+body {
+  // background: url("https://images.unsplash.com/photo-1562813733-b31f71025d54?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80") no-repeat fixed center/cover;
+  // color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 70px 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+.container .link {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  text-decoration: none;
+}
+.container .link:hover {
+  color: var(--white);
+}
+.container .overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 25px auto;
+  border: 1px solid var(--blue);
+  border-radius: 15px;
+  background: linear-gradient(90deg, var(--blue) 0%, transparent 65%);
+}
+.container .overlay:hover {
+  letter-spacing: .5em;
+}
+.container .overlay.active {
+  background: linear-gradient(90deg, transparent 40%, var(--blue) 100%);
+}
+.container .overlay button {
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  color: var(--white);
+  cursor: pointer;
+  margin: 0 10px;
+}
+.container .form-container {
+  padding: 10px 20px;
+  width: 400px;
+}
+.container .form-container .login-form,
+.container .form-container .sigin-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  animation: hide 1.25s ease-in-out forwards;
+}
+.container .form-container .active-form {
+  display: block;
+  animation: show 1.25s ease-in-out;
+}
+.container .form-container .checkboxForm {
+  display: block;
+  padding-bottom: 15px;
+  color: var(--lightblue);
+}
+.container .form-container .checkboxForm input {
+  background: none;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
+}
+.container .form-container input {
+  background: none;
+  border: 1px solid var(--gray);
+  height: 40px;
+  border-radius: 15px;
+  margin: 20px 0;
+  padding-left: 20px;
+  color: #fff;
+  width: 100%;
+}
+.container .form-container input:focus + label,
+.container .form-container input:not(:placeholder-shown) + label {
+  transform: translate(0%, -200%);
+  color: var(--blue);
+}
+.container .form-container input:focus,
+.container .form-container input:valid {
+  border: 1px solid var(--blue);
+}
+.container .form-container input[type=submit] {
+  align-items: center;
+  background: linear-gradient(90deg, var(--lightblue) 0%, var(--blue) 100%);
+  cursor: pointer;
+  font-size: 1.1em;
+}
+.container .form-container input[type=submit]:hover {
+  letter-spacing: 0.2em;
+}
+.container .form-container input[type=submit]:active {
+  transform: scale(1.2);
+}
+.container .form-container .input-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.container .form-container .input-form label {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  cursor: text;
+}
+
+@keyframes show {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, 50%) scale(1.4);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    z-index: -10;
+    pointer-events: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

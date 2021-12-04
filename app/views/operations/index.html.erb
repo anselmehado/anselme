@@ -23,10 +23,15 @@
         <td><%= link_to 'Destroy', operation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    <td><%= Operation.sum(:montantsort) %></td>
+
   </tbody>
 </table>
-
 <br>
+
+<% somme_depense = 0 %>
+<% @operations.each do |operation| %>
+  <% somme_depense += operation.montantsort.to_i %>
+<% end %>
+<p> La somme des depenses : <%= somme_depense %></p><br>
 
 <%= link_to 'New Operation', new_operation_path %>

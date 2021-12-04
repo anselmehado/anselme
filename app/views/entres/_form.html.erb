@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :montant_in %>
-    <%= form.text_field :montant_in %>
+    <%=  form.text_field :montant_in, :required => true, :as => :float  %>
   </div>
 
   <div class="field">
     <%= form.label :motif %>
-    <%= form.text_field :motif %>
+    <%= form.text_field :motif, :required => true %>
   </div>
 
   <div class="actions">
