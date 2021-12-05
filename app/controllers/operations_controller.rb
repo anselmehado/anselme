@@ -6,6 +6,7 @@ class OperationsController < ApplicationController
   def index
     @operations = Operation.user_operation_list(current_user.id)
     @operations = Operation.user_operation(current_user.id)
+    #somme_ops = somme_operation(@operations)
     #@operations = Operation.all
   end
 
@@ -64,6 +65,17 @@ class OperationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def somme_operation(operation)
+  #   i= 0
+  #   while (i<=operation.size)
+  #     sommeOp = 0
+  #     sommeOp += Operation[i].montantsort.to_i
+  #      i += 1
+  #   end
+  #   sommeOp
+  #
+  # end
 
   def nombre_positif(nombre)
       if (nombre <0)
