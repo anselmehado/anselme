@@ -12,17 +12,26 @@ class Operation < ApplicationRecord
 
   belongs_to :user
 
-  # def montant_positif
-  # if montantsort < 0
-  #   abs(montantsort)
-  # end
-  # end
 
   scope :user_operation, -> (query) {where(user_id: query)}
 
   def user_operation(query)
      where(user_id: query)
   end
+
+
+   # def somme_operation(operation)
+   #   i= 0
+   #   sommeOp = 0
+   #   while (i<=operation.size)
+   #
+   #     #sommeOp += Operation[i].montantsort.to_i
+   #     sommeOp= sum(:montantsort)
+   #     i += 1
+   #   end
+   #  sommeOp
+   #
+   # end
 
 
 end
